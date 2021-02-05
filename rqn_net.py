@@ -25,7 +25,7 @@ class RQNet(nn.Module):
     	maxim = torch.max(q_values, dim=1, keepdim=True)[0]
     	q_values_aux = torch.cat((q_values_aux, maxim), dim=2)
     	
-    	q_values_aux = self.hyper(q_values_aux)
+    	q_values_aux = self.estim(q_values_aux)
     	q_values_est = q_values + q_values_aux
     	
     	return q_values_est 
